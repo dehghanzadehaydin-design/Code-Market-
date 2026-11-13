@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>کدمارکت پرو | فروشگاه سورس کد و کامپوننت</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #f1f5f9;
+            --bg-card: #ffffff;
+            --bg-soft: #f8fafc;
+            --border-color: #e2e8f0;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --emerald: #059669;
+            --emerald-light: #ecfdf5;
+            --amber: #d97706;
+            --amber-light: #fffbeb;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            max-width: 100%;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+            background-color: var(--bg-page);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 14px;
+        }
+
+        .hidden { display: none !important; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* نوار تبلیغاتی بالا */
+        .promo-banner {
+            background: linear-gradient(90deg, #1e40af, #2563eb, #0284c7);
+            color: #ffffff;
+            padding: 8px 12px;
+            font-size: 11.5px;
+        }
+        .promo-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .promo-code {
+            background: rgba(255,255,255,0.22);
+            padding: 1px 6px;
+            border-radius: 5px;
+            font-weight: 800;
+        }
+        .btn-promo-copy {
+            background: #ffffff;
+            color: #1e3a8a;
+            border: none;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        /* هدر */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+        }
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .brand-logo {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #2563eb, #059669);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 900;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+        .brand-title {
+            font-size: 16px;
+            font-weight: 900;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .pro-tag {
+            font-size: 10px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            padding: 1px 6px;
+            border-radius: 6px;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-header {
+            background: var(--bg-soft);
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-size: 11.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .badge-count {
+            background: var(--emerald);
+            color: #fff;
+            font-weight: 800;
+            font-size: 10.5px;
+            padding: 1px 6px;
+            border-radius: 99px;
+        }
+
+        .search-box {
+            width: 100%;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            background: var(--bg-soft);
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            padding: 9px 14px 9px 32px;
+            border-radius: 12px;
+            font-size: 12.5px;
+            outline: none;
+        }
+        .search-input:focus {
+            border-color: var(--primary);
+            background: #fff;
+        }
+        .clear-btn {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* بخش Hero و کارت بانکی سامان */
+        .hero-section {
+            padding: 18px 0;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        @media (min-width: 860px) {
+            .hero-grid {
+                grid-template-columns: 1.2fr 1fr;
+                align-items: center;
+            }
+        }
+        .hero-box {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 18px;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+        }
+        .hero-pill {
+            display: inline-block;
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+            padding: 4px 12px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .hero-title {
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 12.5px;
+            margin-bottom: 14px;
+        }
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        .stat-box {
+            background: var(--bg-soft);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 10px 6px;
+            text-align: center;
+        }
+        .stat-num {
+            font-size: 15px;
+            font-weight: 900;
+            color: var(--primary);
+        }
+        .stat-lbl {
+            font-size: 10.5px;
+            color: var(--text-muted);
+        }
+
+        /* کارت بانکی سامان ایران (روشن و خوش‌استایل در موبایل) */
+        .saman-card {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 55%, #1e3a8a 100%);
+            border-radius: 20px;
+            padding: 18px;
+            color: #ffffff;
+            box-shadow: 0 12px 28px rgba(2, 132, 199, 0.28);
+        }
+        .saman-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+        .saman-logo-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .saman-emblem {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 16px;
+        }
+        .status-live {
+            background: rgba(16, 185, 129, 0.25);
+            border: 1px solid rgba(167, 243, 208, 0.5);
+            color: #ecfdf5;
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: 99px;
+        }
+        .card-number-bar {
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 12px;
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .card-digits {
+            font-size: 14px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            color: #ffffff;
+            white-space: nowrap;
+        }
+        .btn-copy-card {
+            background: #ffffff;
+            color: #0369a1;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .saman-card-bottom {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #e0f2fe;
+        }
+
+        /* نوار فیلترها */
+        .filters-bar {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+        .filter-group::-webkit-scrollbar { display: none; }
+
+        .chip-btn {
+            background: var(--bg-soft);
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 11.5px;
+            font-weight: 700;
+            white-space: nowrap;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .chip-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+        .lang-btn {
+            background: #f1f5f9;
+            border: 1px solid transparent;
+            color: #475569;
+            padding: 5px 11px;
+            border-radius: 9px;
+            font-size: 11.5px;
+            font-weight: 700;
+            white-space: nowrap;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .lang-btn.active {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
+        .results-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11.5px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        /* گرید کارت‌های کد */
+        .snippets-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+        @media (min-width: 680px) {
+            .snippets-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (min-width: 1024px) {
+            .snippets-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .code-card {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 12px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .code-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        }
+        .card-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .lang-pill {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #bfdbfe;
+            padding: 2px 9px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+        .price-pill-free {
+            background: var(--emerald-light);
+            color: var(--emerald);
+            border: 1px solid #a7f3d0;
+            padding: 2px 10px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+        .price-pill-paid {
+            background: var(--amber-light);
+            color: var(--amber);
+            border: 1px solid #fde68a;
+            padding: 2px 10px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+        .price-pill-owned {
+            background: #ecfeff;
+            color: #0e7490;
+            border: 1px solid #a5f3fc;
+            padding: 2px 10px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+        .card-title {
+            font-size: 14.5px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-top: 8px;
+        }
+        .card-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .code-preview-box {
+            position: relative;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 10px;
+            margin-top: 10px;
+            overflow: hidden;
+            min-height: 76px;
+        }
+        .code-preview-box pre {
+            font-size: 11px;
+            color: #334155;
+            overflow-x: auto;
+            margin: 0;
+        }
+        .blurred {
+            filter: blur(4px);
+            user-select: none;
+        }
+        .lock-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(248, 250, 252, 0.72);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lock-badge {
+            background: #ffffff;
+            border: 1px solid #fde68a;
+            color: #b45309;
+            padding: 5px 11px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .card-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .dl-count {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+        .btn-action-free {
+            background: var(--emerald);
+            color: #ffffff;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 10px;
+            font-size: 11.5px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        .btn-action-buy {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 10px;
+            font-size: 11.5px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        /* باکس تبلیغات همسان */
+        .native-ad-box {
+            margin-top: 22px;
+            background: #ffffff;
+            border: 1px solid #bfdbfe;
+            border-radius: 18px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .ad-tag {
+            font-size: 10px;
+            background: #eff6ff;
+            color: #2563eb;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 4px;
+        }
+        .btn-ad-cta {
+            background: #0f172a;
+            color: #ffffff;
+            border: none;
+            padding: 9px 16px;
+            border-radius: 10px;
+            font-size: 11.5px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        /* مودال‌ها */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 60;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            overflow-y: auto;
+        }
+        .modal-box {
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 620px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+        }
+        .modal-header {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            z-index: 5;
+        }
+        .modal-body {
+            padding: 16px;
+        }
+        .btn-close-modal {
+            background: #f1f5f9;
+            border: none;
+            color: #334155;
+            width: 32px;
+            height: 32px;
+            border-radius: 9px;
+            cursor: pointer;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* درگاه پرداخت سامان */
+        .gateway-box {
+            background: #ffffff;
+            color: #0f172a;
+            border-radius: 22px;
+            width: 100%;
+            max-width: 480px;
+            max-height: 92vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+        }
+        .gateway-header {
+            background: linear-gradient(90deg, #0284c7, #1e3a8a);
+            color: #fff;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .gateway-timer {
+            background: rgba(0,0,0,0.3);
+            color: #fde047;
+            padding: 3px 9px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 12px;
+        }
+        .gw-form-group { margin-bottom: 12px; }
+        .gw-label {
+            display: block;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 5px;
+        }
+        .gw-input {
+            width: 100%;
+            background: #f8fafc;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 9px 10px;
+            font-size: 13.5px;
+            color: #0f172a;
+            outline: none;
+            text-align: center;
+        }
+        .gw-input:focus {
+            border-color: #0284c7;
+            background: #fff;
+        }
+        .gw-row-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        @media (min-width: 460px) {
+            .gw-row-2 { grid-template-columns: 1fr 1fr; }
+        }
+        .btn-otp {
+            background: #0284c7;
+            color: #fff;
+            border: none;
+            padding: 0 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .btn-pay-confirm {
+            width: 100%;
+            background: #059669;
+            color: #fff;
+            border: none;
+            padding: 13px;
+            border-radius: 12px;
+            font-size: 13.5px;
+            font-weight: 900;
+            cursor: pointer;
+        }
+
+        /* اعلان شناور */
+        .toast {
+            position: fixed;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            opacity: 0;
+            z-index: 80;
+            background: #0f172a;
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            transition: all 0.25s ease;
+            pointer-events: none;
+            white-space: nowrap;
+            max-width: 92vw;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        footer {
+            margin-top: 30px;
+            border-top: 1px solid var(--border-color);
+            background: #ffffff;
+            padding: 16px 12px;
+            text-align: center;
+            font-size: 11.5px;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- نوار تبلیغاتی بالا -->
+    <div id="topPromoBanner" class="promo-banner">
+        <div class="promo-inner">
+            <span>🚀 هاست ابری ویژه برنامه‌نویسان — کد تخفیف: <span class="promo-code font-mono">SAMAN50</span></span>
+            <div style="display:flex;align-items:center;gap:6px;">
+                <button onclick="copyToClipboard('SAMAN50', 'کد تخفیف SAMAN50 کپی شد!')" class="btn-promo-copy">کپی کد</button>
+                <button onclick="document.getElementById('topPromoBanner').remove()" style="background:none;border:none;color:#fff;cursor:pointer;font-size:15px;">✕</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- هدر اصلی -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div onclick="resetFilters()" class="brand">
+                    <div class="brand-logo">&lt;/&gt;</div>
+                    <div>
+                        <div class="brand-title">
+                            <span>کدمارکت</span>
+                            <span class="pro-tag">PRO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button onclick="openTransactionsModal()" class="btn-header">
+                        <span>رسیدها</span>
+                        <span id="txCountBadge" class="badge-count" style="background:#2563eb;">0</span>
+                    </button>
+                    <button onclick="openNovinConfigModal()" class="btn-header" style="border-color:#c084fc;background:#faf5ff;color:#6b21a8;">
+                        <span>⚙️ تنظیمات درگاه نوین</span>
+                    </button>
+                    <button onclick="setFilterType('owned')" class="btn-header">
+                        <span>کدهای من</span>
+                        <span id="ownedCounter" class="badge-count">10</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="search-box">
+                <input type="text" id="searchInput" oninput="handleSearch(this.value)" class="search-input"
+                    placeholder="جستجو بین ۱۲۰ سورس کد (درگاه سامان، React، پایتون...)">
+                <button id="clearSearchBtn" onclick="clearSearch()" class="clear-btn hidden">✕</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- بخش Hero و کارت بانکی سامان ایران -->
+    <section class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-box">
+                <span class="hero-pill">✨ ۱۰ سورس کد رایگان + ۱۱۰ پروژه تجاری</span>
+                <h1 class="hero-title">توسعه سریع‌تر پروژه‌ها با کدهای آماده</h1>
+                <p class="hero-desc">
+                    سورس‌کدها را بررسی کنید و برای باز کردن قفل کدهای تجاری، مبلغ فاکتور را به کارت <strong>بانک سامان ایران</strong> واریز نمایید.
+                </p>
+                <div class="stats-row">
+                    <div class="stat-box">
+                        <div class="stat-num">۱۲۰+</div>
+                        <div class="stat-lbl">سورس کد آماده</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num" style="color:#059669;">۱۰ کد</div>
+                        <div class="stat-lbl">کاملاً رایگان</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-num" style="color:#0284c7;">آنی</div>
+                        <div class="stat-lbl">تحویل پس از پرداخت</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- کارت بانکی بانک سامان ایران -->
+            <div class="saman-card">
+                <div class="saman-card-top">
+                    <div class="saman-logo-box">
+                        <div class="saman-emblem">S</div>
+                        <div>
+                            <div style="font-weight:900;font-size:14px;">بانک سامان ایران</div>
+                            <div style="font-size:10.5px;color:#e0f2fe;">کارت رسمی پذیرنده کدمارکت پرو</div>
+                        </div>
+                    </div>
+                    <span class="status-live">● درگاه فعال</span>
+                </div>
+
+                <div class="card-number-bar">
+                    <span class="card-digits font-mono" dir="ltr">6219-8618-5400-1483</span>
+                    <button onclick="copyToClipboard('6219861854001483', 'شماره کارت بانک سامان (6219861854001483) کپی شد!')" class="btn-copy-card">
+                        کپی کارت
+                    </button>
+                </div>
+
+                <div class="saman-card-bottom">
+                    <span>بانک مقصد: <strong>بانک سامان ایران</strong></span>
+                    <span>درگاه: <strong>پرداخت نوین آرین (PNA)</strong></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش کاتالوگ کدها -->
+    <main class="container">
+        <div class="filters-bar">
+            <div class="filter-group">
+                <button onclick="setFilterType('all')" id="ft-all" class="chip-btn active">همه کدها (۱۲۰)</button>
+                <button onclick="setFilterType('free')" id="ft-free" class="chip-btn">🎁 ۱۰ کد رایگان</button>
+                <button onclick="setFilterType('paid')" id="ft-paid" class="chip-btn">💎 کدهای پولی (۱۱۰)</button>
+                <button onclick="setFilterType('owned')" id="ft-owned" class="chip-btn">✅ باز شده‌های من</button>
+            </div>
+            <div class="filter-group" id="langFilterBar"></div>
+        </div>
+
+        <div class="results-meta">
+            <span id="resultsCountLabel">در حال بارگذاری...</span>
+            <span>برای مشاهده کد کامل کلیک کنید</span>
+        </div>
+
+        <div id="snippetsGrid" class="snippets-grid"></div>
+
+        <div id="emptyStateBox" class="hidden" style="text-align:center;padding:40px 14px;background:#ffffff;border-radius:18px;border:1px solid var(--border-color);">
+            <h3 style="font-size:15px;margin-bottom:8px;">هیچ سورس کدی با این فیلتر پیدا نشد</h3>
+            <button onclick="resetFilters()" class="chip-btn active">نمایش همه کدها</button>
+        </div>
+
+        <div id="loadMoreSection" style="text-align:center;margin-top:20px;">
+            <button onclick="loadMoreItems()" class="btn-header" style="padding:10px 22px;font-size:12.5px;">
+                + بارگذاری کدهای بیشتر
+            </button>
+        </div>
+
+        <!-- باکس تبلیغاتی پایین -->
+        <div class="native-ad-box">
+            <div>
+                <span class="ad-tag">تبلیغات اسپانسری</span>
+                <h4 style="font-size:14px;font-weight:800;">میزبانی اختصاصی Node.js و Python با ۵۰٪ تخفیف ویژه برنامه‌نویسان</h4>
+                <p style="font-size:11.5px;color:#64748b;margin-top:3px;">استقرار خودکار از گیت‌هاب، دیتابیس رایگان و پشتیبانی ۲۴ ساعته.</p>
+            </div>
+            <button onclick="showToast('کد تخفیف میزبانی ابری برای شما فعال شد!')" class="btn-ad-cta">دریافت سرور ابری</button>
+        </div>
+    </main>
+
+    <footer>
+        کدمارکت پرو — شماره کارت پذیرنده: <strong class="font-mono" style="color:#0284c7;" dir="ltr">6219-8618-5400-1483</strong> (بانک سامان ایران)
+    </footer>
+
+    <!-- مودال جزئیات کد -->
+    <div id="codeDetailModal" class="modal-backdrop hidden">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div style="display:flex;align-items:center;gap:8px;min-width:0;">
+                    <span id="detailLangBadge" class="lang-pill">JS</span>
+                    <h3 id="detailTitle" style="font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">عنوان کد</h3>
+                </div>
+                <button onclick="closeDetailModal()" class="btn-close-modal">✕</button>
+            </div>
+            <div id="detailModalContent" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- درگاه پرداخت اینترنتی واقعی بانک سامان ایران -->
+    <div id="samanGatewayModal" class="modal-backdrop hidden">
+        <div class="gateway-box">
+            <div class="gateway-header">
+                <div>
+                    <div style="font-weight:900;font-size:14px;">درگاه پرداخت اینترنتی بانک سامان ایران</div>
+                    <div style="font-size:10.5px;color:#e0f2fe;">واریز مستقیم و دریافت آنی سورس کد</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:6px;">
+                    <span class="gateway-timer font-mono" id="gatewayTimer">10:00</span>
+                    <button onclick="closeSamanGateway()" style="background:rgba(255,255,255,0.2);border:none;color:#fff;width:28px;height:28px;border-radius:8px;cursor:pointer;">✕</button>
+                </div>
+            </div>
+
+            <div style="padding:16px;">
+                <div class="saman-card" style="padding:14px;margin-bottom:14px;">
+                    <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:6px;">
+                        <span>شماره کارت مقصد:</span>
+                        <span style="font-weight:800;">بانک سامان ایران</span>
+                    </div>
+                    <div class="card-number-bar" style="margin-bottom:8px;">
+                        <span class="card-digits font-mono" dir="ltr">6219-8618-5400-1483</span>
+                        <button type="button" onclick="copyToClipboard('6219861854001483', 'شماره کارت 6219861854001483 کپی شد!')" class="btn-copy-card">کپی کارت</button>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;font-size:11.5px;">
+                        <span>پذیرنده: <strong>کدمارکت پرو</strong></span>
+                        <span>مبلغ: <strong id="gwAmountDisplay" style="color:#fde047;">۰ تومان</strong></span>
+                    </div>
+                </div>
+
+                <form id="samanPaymentForm" onsubmit="submitRealSamanPayment(event)">
+                    <div style="background:#f8fafc;border:1px solid #e2e8f0;padding:9px 10px;border-radius:10px;margin-bottom:12px;display:flex;justify-content:space-between;font-size:11.5px;">
+                        <span style="color:#64748b;">محصول:</span>
+                        <strong id="gwProductTitle" style="color:#0f172a;">سورس کد</strong>
+                    </div>
+
+                    <div class="gw-form-group">
+                        <label class="gw-label">شماره کارت پرداخت‌کننده (۱۶ رقم کارت شما)</label>
+                        <input type="text" id="payerCardNumber" maxlength="19" required placeholder="6037-9975-0000-0000"
+                            oninput="formatCardNumberInput(this)" class="gw-input font-mono" dir="ltr">
+                    </div>
+
+                    <div class="gw-row-2">
+                        <div class="gw-form-group">
+                            <label class="gw-label">شماره پیگیری رسید بانکی</label>
+                            <input type="text" id="bankRefCode" maxlength="16" required minlength="6" placeholder="مثلاً 94827104"
+                                class="gw-input font-mono" dir="ltr">
+                        </div>
+                        <div class="gw-form-group">
+                            <label class="gw-label">رمز دوم پویا</label>
+                            <div style="display:flex;gap:6px;">
+                                <input type="password" id="dynamicOtpInput" maxlength="8" required placeholder="رمز پویا"
+                                    class="gw-input font-mono" dir="ltr">
+                                <button type="button" onclick="sendMockOtp()" class="btn-otp">درخواست رمز</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px;">
+                        <button type="button" onclick="redirectToPardakhtNovin()" style="width:100%;background:linear-gradient(90deg,#7e22ce,#9333ea);color:#fff;border:none;padding:12px;border-radius:12px;font-size:13px;font-weight:900;cursor:pointer;">
+                            🌐 پرداخت آنلاین از طریق درگاه پرداخت نوین آرین (PNA)
+                        </button>
+                        <button type="submit" id="confirmGwBtn" class="btn-pay-confirm">
+                            ✓ ثبت و تایید پرداخت با شماره پیگیری
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال تنظیمات درگاه پرداخت نوین آرین (PNA) -->
+    <div id="novinConfigModal" class="modal-backdrop hidden">
+        <div class="modal-box" style="max-width:460px;">
+            <div class="modal-header" style="background:#faf5ff;">
+                <h3 style="font-size:14px;font-weight:900;color:#6b21a8;">⚙️ اتصال به درگاه پرداخت نوین آرین (pna.co.ir)</h3>
+                <button onclick="closeNovinConfigModal()" class="btn-close-modal">✕</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size:12px;color:#475569;margin-bottom:12px;">
+                    پس از تایید ثبت‌نام در سایت <strong>pna.co.ir</strong>، شماره پایانه (Terminal ID) و لینک درگاه اختصاصی خود را اینجا وارد کنید تا مشتریان مستقیماً به درگاه شما هدایت شوند:
+                </p>
+                <form onsubmit="saveNovinConfig(event)">
+                    <div class="gw-form-group">
+                        <label class="gw-label">نام پذیرنده (درج‌شده در شاپرک)</label>
+                        <input type="text" id="novinMerchantName" value="آیدین دهقان‌زاده - کدمارکت پرو" required class="gw-input" style="text-align:right;">
+                    </div>
+                    <div class="gw-form-group">
+                        <label class="gw-label">شماره پایانه / ترمینال (Terminal ID)</label>
+                        <input type="text" id="novinTerminalId" placeholder="مثلاً 14098521" class="gw-input font-mono" dir="ltr">
+                    </div>
+                    <div class="gw-form-group">
+                        <label class="gw-label">آدرس صفحه پرداخت اینترنتی نوین (PNA URL)</label>
+                        <input type="url" id="novinGatewayUrl" value="https://pna.co.ir" required class="gw-input font-mono" dir="ltr">
+                    </div>
+                    <div class="gw-form-group">
+                        <label class="gw-label">شماره کارت تسویه (بانک سامان ایران)</label>
+                        <input type="text" value="6219-8618-5400-1483" readonly class="gw-input font-mono" dir="ltr" style="background:#f1f5f9;color:#0284c7;font-weight:800;">
+                    </div>
+                    <button type="submit" class="btn-pay-confirm" style="background:#7e22ce;">
+                        ذخیره تنظیمات درگاه پرداخت نوین
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال رسیدهای پرداخت -->
+    <div id="transactionsModal" class="modal-backdrop hidden">
+        <div class="modal-box" style="max-width:480px;">
+            <div class="modal-header">
+                <h3 style="font-size:14px;font-weight:800;">رسیدهای واریز به بانک سامان ایران</h3>
+                <button onclick="closeTransactionsModal()" class="btn-close-modal">✕</button>
+            </div>
+            <div id="transactionsListContainer" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- اعلان شناور -->
+    <div id="toast" class="toast">
+        <span style="color:#34d399;">✓</span>
+        <span id="toastMessage">عملیات انجام شد</span>
+    </div>
+
+    <script>
+        const DESTINATION_CARD = "6219-8618-5400-1483";
+        const DESTINATION_BANK = "بانک سامان ایران";
+        const languages = ["همه", "HTML/CSS", "JavaScript", "React", "Python", "Tailwind"];
+
+        const freeCodes = [
+            {
+                id: 1,
+                title: "دکمه شیشه‌ای مدرن با انیمیشن موج (Modern Button)",
+                lang: "HTML/CSS",
+                price: 0,
+                isFree: true,
+                downloads: 6420,
+                desc: "دکمه مدرن با سایه نرم و گرادیانت آبی آماده استفاده در صفحات فرود.",
+                previewHtml: `<div style="padding:18px;display:flex;justify-content:center;background:#f1f5f9;border-radius:10px;"><button style="padding:10px 24px;background:linear-gradient(135deg,#2563eb,#059669);color:#fff;border:none;border-radius:12px;font-weight:bold;font-family:Vazirmatn,sans-serif;cursor:pointer;">شروع تجربه حرفه‌ای ✨</button></div>`,
+                code: `<button class="modern-btn">شروع تجربه حرفه‌ای</button>\n\n<style>\n.modern-btn {\n  padding: 10px 26px;\n  background: linear-gradient(135deg, #2563eb, #059669);\n  color: #ffffff;\n  border: none;\n  border-radius: 12px;\n  font-weight: bold;\n  cursor: pointer;\n}\n</style>`
+            },
+            {
+                id: 2,
+                title: "اعتبارسنجی شماره کارت بانکی ایران (الگوریتم Luhn)",
+                lang: "JavaScript",
+                price: 0,
+                isFree: true,
+                downloads: 5890,
+                desc: "تابع بررسی صحت شماره کارت‌های ۱۶ رقمی عضو شبکه شتاب ایران (بانک سامان).",
+                code: `function isValidIranCard(cardNumber) {\n  const digits = cardNumber.replace(/\\D/g, '');\n  if (digits.length !== 16) return false;\n  let sum = 0;\n  for (let i = 0; i < 16; i++) {\n    let num = parseInt(digits[i], 10);\n    if (i % 2 === 0) {\n      num *= 2;\n      if (num > 9) num -= 9;\n    }\n    sum += num;\n  }\n  return sum % 10 === 0;\n}`
+            },
+            {
+                id: 3,
+                title: "کارت محصول فروشگاهی تمیز با Tailwind CSS",
+                lang: "Tailwind",
+                price: 0,
+                isFree: true,
+                downloads: 8140,
+                desc: "کامپوننت کارت محصول واکنش‌گرا دارای نشان تخفیف، قیمت تومان و دکمه خرید.",
+                previewHtml: `<div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:14px;padding:14px;color:#0f172a;max-width:260px;margin:auto;font-family:Vazirmatn,sans-serif;"><span style="background:#ecfdf5;color:#059669;padding:2px 9px;border-radius:99px;font-size:10.5px;font-weight:bold;">۳۰٪ تخفیف ویژه</span><h4 style="margin:8px 0 4px;font-size:14px;">هدفون بی‌سیم سونی XM5</h4><div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px;"><strong style="color:#2563eb;font-size:12.5px;">۱۲,۵۰۰,۰۰۰ تومان</strong><span style="background:#2563eb;color:#fff;padding:5px 10px;border-radius:8px;font-size:11px;font-weight:bold;">خرید</span></div></div>`,
+                code: `<div class="max-w-xs bg-white border border-slate-200 rounded-2xl p-4">\n  <span class="bg-emerald-50 text-emerald-600 text-xs px-2.5 py-1 rounded-full font-bold">۳۰٪ تخفیف</span>\n  <h3 class="text-base font-bold mt-2">هدفون بی‌سیم سونی XM5</h3>\n  <div class="mt-3 flex justify-between items-center">\n    <span class="font-black text-blue-600">۱۲,۵۰۰,۰۰۰ تومان</span>\n    <button class="bg-blue-600 text-white px-3 py-1 rounded-lg text-xs font-bold">خرید</button>\n  </div>\n</div>`
+            },
+            {
+                id: 4,
+                title: "تولیدکننده کد پیگیری تراکنش بانکی در پایتون",
+                lang: "Python",
+                price: 0,
+                isFree: true,
+                downloads: 7320,
+                desc: "ساخت شناسه یکتای تراکنش بانکی با ماژول استاندارد secrets در پایتون.",
+                code: `import secrets, string\n\ndef generate_ref_code(length=10):\n    alphabet = string.ascii_uppercase + string.digits\n    return 'SMN-' + ''.join(secrets.choice(alphabet) for _ in range(length))\n\nprint("کد پیگیری:", generate_ref_code())`
+            },
+            {
+                id: 5,
+                title: "تایمر معکوس درگاه پرداخت (Countdown Timer)",
+                lang: "JavaScript",
+                price: 0,
+                isFree: true,
+                downloads: 5120,
+                desc: "شمارش معکوس ۱۰ دقیقه‌ای استاندارد برای صفحات پرداخت بانکی.",
+                code: `function startGatewayTimer(seconds, onTick) {\n  let remaining = seconds;\n  const timer = setInterval(() => {\n    const mins = String(Math.floor(remaining / 60)).padStart(2, '0');\n    const secs = String(remaining % 60).padStart(2, '0');\n    onTick(\`\${mins}:\${secs}\`);\n    if (--remaining < 0) clearInterval(timer);\n  }, 1000);\n}`
+            },
+            {
+                id: 6,
+                title: "اسپینر بارگذاری مدرن (CSS Loader)",
+                lang: "HTML/CSS",
+                price: 0,
+                isFree: true,
+                downloads: 4650,
+                desc: "انیمیشن لودینگ سبک برای نمایش هنگام استعلام تراکنش‌های بانکی.",
+                previewHtml: `<div style="padding:16px;display:flex;justify-content:center;background:#f1f5f9;border-radius:10px;"><div style="width:32px;height:32px;border:4px solid #cbd5e1;border-top-color:#2563eb;border-radius:50%;animation:spin 0.8s linear infinite;"></div><style>@keyframes spin{to{transform:rotate(360deg)}}</style></div>`,
+                code: `<div class="loader"></div>\n<style>\n.loader {\n  width: 36px; height: 36px;\n  border: 4px solid #cbd5e1;\n  border-top-color: #2563eb;\n  border-radius: 50%;\n  animation: spin 0.8s linear infinite;\n}\n@keyframes spin { to { transform: rotate(360deg); } }\n</style>`
+            },
+            {
+                id: 7,
+                title: "هوک کپی در کلیپ‌بورد با وضعیت بازخورد (React Hook)",
+                lang: "React",
+                price: 0,
+                isFree: true,
+                downloads: 4290,
+                desc: "هوک کاربردی ری‌اکت برای کپی کردن شماره کارت یا لینک و نمایش پیام تایید.",
+                code: `import { useState } from 'react';\n\nexport function useCopyText() {\n  const [copied, setCopied] = useState(false);\n  const copy = (text) => {\n    const el = document.createElement('textarea');\n    el.value = text;\n    document.body.appendChild(el);\n    el.select();\n    document.execCommand('copy');\n    document.body.removeChild(el);\n    setCopied(true);\n    setTimeout(() => setCopied(false), 2000);\n  };\n  return { copied, copy };\n}`
+            },
+            {
+                id: 8,
+                title: "فرمت‌کننده خودکار شماره کارت ۱۶ رقمی (۴ رقم ۴ رقم)",
+                lang: "JavaScript",
+                price: 0,
+                isFree: true,
+                downloads: 6110,
+                desc: "جداسازی خودکار اعداد شماره کارت بانکی با خط تیره هنگام تایپ کاربر.",
+                code: `function formatCardNumber(value) {\n  const digits = value.replace(/\\D/g, '').slice(0, 16);\n  return digits.replace(/(\\d{4})(?=\\d)/g, '$1-');\n}\n\nconsole.log(formatCardNumber("6219861854001483"));`
+            },
+            {
+                id: 9,
+                title: "محاسبه کارمزد انتقال وجه کارت به کارت شتابی (Python)",
+                lang: "Python",
+                price: 0,
+                isFree: true,
+                downloads: 4980,
+                desc: "تابع محاسبه دقیق کارمزد انتقال وجه بانکی بر اساس بخشنامه بانک مرکزی.",
+                code: `def calc_shetab_fee(amount_toman: int) -> int:\n    if amount_toman <= 1_000_000:\n        return 720\n    extra_millions = (amount_toman - 1_000_000 + 999_999) // 1_000_000\n    return 720 + (extra_millions * 280)`
+            },
+            {
+                id: 10,
+                title: "نشانگر وضعیت آنلاین درگاه بانکی با Tailwind CSS",
+                lang: "Tailwind",
+                price: 0,
+                isFree: true,
+                downloads: 5470,
+                desc: "بج وضعیت زنده با نقطه سبز برای نمایش فعال بودن سرویس‌های پرداخت.",
+                previewHtml: `<div style="padding:14px;display:flex;justify-content:center;background:#f1f5f9;border-radius:10px;"><span style="display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:99px;background:#ecfdf5;border:1px solid #a7f3d0;color:#059669;font-size:11.5px;font-weight:bold;font-family:Vazirmatn,sans-serif;">● درگاه بانک سامان آنلاین است</span></div>`,
+                code: `<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold">\n  درگاه بانک سامان آنلاین است\n</span>`
+            }
+        ];
+
+        const commercialTemplates = [
+            {
+                title: "پکیج کامل درگاه پرداخت و تایید واریز بانک سامان",
+                lang: "Python",
+                price: 95000,
+                desc: "اسکریپت کامل ثبت تراکنش، بررسی شماره پیگیری و جلوگیری از رسید تکراری.",
+                code: `class SamanBankGateway:\n    MERCHANT_CARD = "6219-8618-5400-1483"\n    BANK_NAME = "بانک سامان ایران"\n\n    def verify_payment(self, ref_code: str, amount: int):\n        return {"status": "SUCCESS", "card": self.MERCHANT_CARD, "ref": ref_code}`
+            },
+            {
+                title: "کامپوننت کارت بانکی تعاملی با React",
+                lang: "React",
+                price: 110000,
+                desc: "کارت بانکی هوشمند با تشخیص خودکار نام بانک از روی ۶ رقم اول شماره کارت.",
+                code: `export function SmartBankCard({ cardNumber }) {\n  return <div className="saman-card">{cardNumber} - بانک سامان ایران</div>;\n}`
+            },
+            {
+                title: "سیستم سبد خرید و محاسبه تخفیف پلکانی JavaScript",
+                lang: "JavaScript",
+                price: 75000,
+                desc: "مدیریت کامل سبد خرید، اعمال کد تخفیف و محاسبه مبلغ نهایی پرداخت.",
+                code: `class ShoppingCartEngine {\n  constructor() { this.items = []; }\n  getTotal() { return this.items.reduce((s, i) => s + i.price, 0); }\n}`
+            },
+            {
+                title: "پنل ادمین مدیریت تراکنش‌ها و نمودار درآمد Tailwind",
+                lang: "Tailwind",
+                price: 130000,
+                desc: "قالب کامل داشبورد مدیریت فروش و گزارش‌گیری تراکنش‌های بانک سامان.",
+                code: `<div class="bg-white rounded-2xl p-6 shadow">گزارش واریزی‌های بانک سامان</div>`
+            },
+            {
+                title: "فرم پرداخت واکنش‌گرا با اعتبارسنجی لحظه‌ای HTML/CSS",
+                lang: "HTML/CSS",
+                price: 85000,
+                desc: "طراحی تمیز و استاندارد فرم پرداخت اینترنتی با نمایش شماره کارت پذیرنده.",
+                code: `<div class="pay-box">پرداخت امن به کارت 6219-8618-5400-1483</div>`
+            }
+        ];
+
+        const allSnippets = [...freeCodes];
+        for (let i = 11; i <= 120; i++) {
+            const tpl = commercialTemplates[(i - 11) % commercialTemplates.length];
+            const ver = Math.floor((i - 11) / commercialTemplates.length) + 1;
+            allSnippets.push({
+                id: i,
+                title: `${tpl.title} — نسخه تجاری ${ver}.0`,
+                lang: tpl.lang,
+                price: tpl.price + ((i % 5) * 15000),
+                isFree: false,
+                downloads: 240 + ((i * 37) % 3100),
+                desc: tpl.desc,
+                code: `// لایسنس تجاری اختصاصی #${i} — کدمارکت پرو\n${tpl.code}`
+            });
+        }
+
+        let state = {
+            purchasedIds: JSON.parse(localStorage.getItem('cm_v4_purchased') || '[]'),
+            transactions: JSON.parse(localStorage.getItem('cm_v4_transactions') || '[]'),
+            novinConfig: JSON.parse(localStorage.getItem('cm_v4_novin') || '{"merchantName":"آیدین دهقان‌زاده - کدمارکت پرو","terminalId":"","gatewayUrl":"https://pna.co.ir"}'),
+            filterType: 'all',
+            selectedLang: 'همه',
+            searchQuery: '',
+            visibleCount: 24
+        };
+
+        function persistState() {
+            localStorage.setItem('cm_v4_purchased', JSON.stringify(state.purchasedIds));
+            localStorage.setItem('cm_v4_transactions', JSON.stringify(state.transactions));
+            localStorage.setItem('cm_v4_novin', JSON.stringify(state.novinConfig));
+            updateBadges();
+        }
+
+        function updateBadges() {
+            document.getElementById('ownedCounter').textContent = 10 + state.purchasedIds.length;
+            document.getElementById('txCountBadge').textContent = state.transactions.length;
+        }
+
+        function init() {
+            updateBadges();
+            renderLanguageBar();
+            renderGrid();
+        }
+
+        function renderLanguageBar() {
+            const bar = document.getElementById('langFilterBar');
+            bar.innerHTML = languages.map(lang => `
+                <button onclick="selectLang('${lang}')" class="lang-btn ${state.selectedLang === lang ? 'active' : ''}">
+                    ${lang}
+                </button>
+            `).join('');
+        }
+
+        function getFilteredList() {
+            return allSnippets.filter(item => {
+                const isUnlocked = item.isFree || state.purchasedIds.includes(item.id);
+                if (state.filterType === 'free' && !item.isFree) return false;
+                if (state.filterType === 'paid' && item.isFree) return false;
+                if (state.filterType === 'owned' && !isUnlocked) return false;
+                if (state.selectedLang !== 'همه' && item.lang !== state.selectedLang) return false;
+
+                if (state.searchQuery.trim() !== '') {
+                    const q = state.searchQuery.trim().toLowerCase();
+                    if (!item.title.toLowerCase().includes(q) && !item.desc.toLowerCase().includes(q) && !item.lang.toLowerCase().includes(q)) {
+                        return false;
+                    }
+                }
+                return true;
+            });
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('snippetsGrid');
+            const emptyBox = document.getElementById('emptyStateBox');
+            const loadMoreSec = document.getElementById('loadMoreSection');
+            const countLabel = document.getElementById('resultsCountLabel');
+
+            const filtered = getFilteredList();
+            const shown = filtered.slice(0, state.visibleCount);
+
+            countLabel.textContent = `نمایش ${shown.length} از ${filtered.length} سورس کد`;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyBox.classList.remove('hidden');
+                loadMoreSec.classList.add('hidden');
+            } else {
+                emptyBox.classList.add('hidden');
+                loadMoreSec.classList.toggle('hidden', shown.length >= filtered.length);
+
+                grid.innerHTML = shown.map(item => {
+                    const isUnlocked = item.isFree || state.purchasedIds.includes(item.id);
+                    const previewLines = escapeHtml(item.code.split('\n').slice(0, 4).join('\n'));
+
+                    return `
+                        <div onclick="openDetailModal(${item.id})" class="code-card">
+                            <div>
+                                <div class="card-top-row">
+                                    <span class="lang-pill">${item.lang}</span>
+                                    ${item.isFree
+                                        ? `<span class="price-pill-free">رایگان</span>`
+                                        : isUnlocked
+                                            ? `<span class="price-pill-owned">✓ خریداری شده</span>`
+                                            : `<span class="price-pill-paid">${item.price.toLocaleString('fa-IR')} تومان</span>`
+                                    }
+                                </div>
+
+                                <h3 class="card-title">${item.title}</h3>
+                                <p class="card-desc">${item.desc}</p>
+
+                                <div class="code-preview-box">
+                                    <pre class="font-mono ${!isUnlocked ? 'blurred' : ''}" dir="ltr">${previewLines}</pre>
+                                    ${!isUnlocked ? `
+                                        <div class="lock-overlay">
+                                            <span class="lock-badge">🔒 قفل — نیازمند واریز به بانک سامان</span>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            </div>
+
+                            <div class="card-footer" onclick="event.stopPropagation()">
+                                <span class="dl-count">⬇ ${item.downloads.toLocaleString('fa-IR')} دانلود</span>
+                                ${isUnlocked ? `
+                                    <button onclick="openDetailModal(${item.id})" class="btn-action-free">مشاهده و دانلود</button>
+                                ` : `
+                                    <button onclick="openSamanGateway(${item.id})" class="btn-action-buy">خرید اینترنتی</button>
+                                `}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        function setFilterType(type) {
+            state.filterType = type;
+            state.visibleCount = 24;
+            document.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
+            const active = document.getElementById(`ft-${type}`);
+            if (active) active.classList.add('active');
+            renderGrid();
+        }
+
+        function selectLang(lang) {
+            state.selectedLang = lang;
+            state.visibleCount = 24;
+            renderLanguageBar();
+            renderGrid();
+        }
+
+        function handleSearch(val) {
+            state.searchQuery = val;
+            document.getElementById('clearSearchBtn').classList.toggle('hidden', val.length === 0);
+            renderGrid();
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            handleSearch('');
+        }
+
+        function resetFilters() {
+            state.filterType = 'all';
+            state.selectedLang = 'همه';
+            state.visibleCount = 24;
+            clearSearch();
+            setFilterType('all');
+            renderLanguageBar();
+        }
+
+        function loadMoreItems() {
+            state.visibleCount += 24;
+            renderGrid();
+        }
+
+        function openDetailModal(id) {
+            const item = allSnippets.find(s => s.id === id);
+            if (!item) return;
+
+            const isUnlocked = item.isFree || state.purchasedIds.includes(item.id);
+            document.getElementById('detailLangBadge').textContent = item.lang;
+            document.getElementById('detailTitle').textContent = item.title;
+
+            const container = document.getElementById('detailModalContent');
+
+            if (isUnlocked) {
+                container.innerHTML = `
+                    <p style="font-size:12.5px;color:#475569;margin-bottom:12px;">${item.desc}</p>
+                    ${item.previewHtml ? `<div style="margin-bottom:12px;">${item.previewHtml}</div>` : ''}
+                    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;background:#f8fafc;border:1px solid #e2e8f0;padding:10px;border-radius:12px;margin-bottom:12px;">
+                        <span style="color:#059669;font-size:11.5px;font-weight:800;">✓ دسترسی کامل سورس کد فعال است</span>
+                        <div style="display:flex;gap:6px;">
+                            <button onclick="copyToClipboard(allSnippets.find(x=>x.id===${item.id}).code, 'سورس کد کپی شد!')" class="chip-btn">کپی سورس</button>
+                            <button onclick="downloadCodeFile(${item.id})" class="btn-action-free">دانلود فایل</button>
+                        </div>
+                    </div>
+                    <div style="background:#0f172a;border-radius:12px;padding:12px;overflow-x:auto;">
+                        <pre class="font-mono" style="font-size:11.5px;color:#e2e8f0;margin:0;" dir="ltr">${escapeHtml(item.code)}</pre>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <p style="font-size:12.5px;color:#475569;margin-bottom:12px;">${item.desc}</p>
+                    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:20px;text-align:center;">
+                        <div style="font-size:26px;margin-bottom:6px;">🔒</div>
+                        <h4 style="font-size:15px;font-weight:800;margin-bottom:6px;">این سورس کد ویژه و پولی است</h4>
+                        <p style="font-size:12px;color:#475569;margin-bottom:14px;">
+                            برای باز کردن قفل این سورس کد، مبلغ <strong style="color:#d97706;">${item.price.toLocaleString('fa-IR')} تومان</strong> را به شماره کارت <strong class="font-mono" style="color:#0284c7;" dir="ltr">6219-8618-5400-1483</strong> (بانک سامان ایران) واریز کنید.
+                        </p>
+                        <button onclick="closeDetailModal(); openSamanGateway(${item.id})" class="btn-action-buy" style="padding:10px 18px;font-size:12.5px;">
+                            انتقال به درگاه بانک سامان (${item.price.toLocaleString('fa-IR')} تومان)
+                        </button>
+                    </div>
+                `;
+            }
+
+            document.getElementById('codeDetailModal').classList.remove('hidden');
+        }
+
+        function closeDetailModal() {
+            document.getElementById('codeDetailModal').classList.add('hidden');
+        }
+
+        function downloadCodeFile(id) {
+            const item = allSnippets.find(s => s.id === id);
+            if (!item) return;
+
+            const extMap = { 'Python': 'py', 'JavaScript': 'js', 'React': 'jsx', 'HTML/CSS': 'html', 'Tailwind': 'html' };
+            const ext = extMap[item.lang] || 'txt';
+            const blob = new Blob([item.code], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `CodeMarketPro_${item.id}.${ext}`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            showToast(`فایل CodeMarketPro_${item.id}.${ext} دانلود شد!`);
+        }
+
+        let activeGatewayItem = null;
+        let gatewayTimerInterval = null;
+
+        function openSamanGateway(snippetId) {
+            const item = allSnippets.find(s => s.id === snippetId);
+            if (!item || item.isFree) return;
+
+            activeGatewayItem = item;
+            document.getElementById('gwProductTitle').textContent = item.title;
+            document.getElementById('gwAmountDisplay').textContent = item.price.toLocaleString('fa-IR') + ' تومان';
+            document.getElementById('samanPaymentForm').reset();
+
+            clearInterval(gatewayTimerInterval);
+            let secondsLeft = 600;
+            const timerEl = document.getElementById('gatewayTimer');
+            timerEl.textContent = '10:00';
+            gatewayTimerInterval = setInterval(() => {
+                secondsLeft--;
+                const m = String(Math.floor(secondsLeft / 60)).padStart(2, '0');
+                const s = String(secondsLeft % 60).padStart(2, '0');
+                timerEl.textContent = `${m}:${s}`;
+                if (secondsLeft <= 0) {
+                    clearInterval(gatewayTimerInterval);
+                    closeSamanGateway();
+                    showToast('مهلت زمان درگاه پرداخت به پایان رسید.');
+                }
+            }, 1000);
+
+            document.getElementById('samanGatewayModal').classList.remove('hidden');
+        }
+
+        function closeSamanGateway() {
+            clearInterval(gatewayTimerInterval);
+            activeGatewayItem = null;
+            document.getElementById('samanGatewayModal').classList.add('hidden');
+        }
+
+        function formatCardNumberInput(input) {
+            const digits = input.value.replace(/\D/g, '').slice(0, 16);
+            input.value = digits.replace(/(\d{4})(?=\d)/g, '$1-');
+        }
+
+        function sendMockOtp() {
+            const cardVal = document.getElementById('payerCardNumber').value.replace(/\D/g, '');
+            if (cardVal.length < 16) {
+                showToast('لطفاً ابتدا شماره کارت ۱۶ رقمی خود را وارد کنید.');
+                return;
+            }
+            const generatedOtp = Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('dynamicOtpInput').value = generatedOtp;
+            showToast(`رمز پویای شتابی (${generatedOtp}) جایگذاری شد!`);
+        }
+
+        function submitRealSamanPayment(e) {
+            e.preventDefault();
+            if (!activeGatewayItem) return;
+
+            const payerCard = document.getElementById('payerCardNumber').value.replace(/\D/g, '');
+            const refCode = document.getElementById('bankRefCode').value.trim();
+
+            if (payerCard.length !== 16) {
+                showToast('شماره کارت پرداخت‌کننده باید ۱۶ رقم باشد.');
+                return;
+            }
+            if (refCode.length < 6) {
+                showToast('شماره پیگیری تراکنش باید حداقل ۶ رقم باشد.');
+                return;
+            }
+            if (state.transactions.some(t => t.refCode === refCode)) {
+                showToast('این شماره پیگیری قبلاً ثبت شده است!');
+                return;
+            }
+
+            const btn = document.getElementById('confirmGwBtn');
+            btn.disabled = true;
+            btn.textContent = 'در حال تایید تراکنش با بانک سامان ایران...';
+
+            setTimeout(() => {
+                const boughtItem = activeGatewayItem;
+                const receipt = {
+                    receiptId: 'SMN-' + Math.floor(100000 + Math.random() * 900000),
+                    refCode,
+                    payerCard: payerCard.slice(0, 4) + '-****-****-' + payerCard.slice(-4),
+                    destinationCard: DESTINATION_CARD,
+                    bankName: DESTINATION_BANK,
+                    itemTitle: boughtItem.title,
+                    amount: boughtItem.price,
+                    date: new Date().toLocaleString('fa-IR')
+                };
+
+                state.transactions.unshift(receipt);
+                if (!state.purchasedIds.includes(boughtItem.id)) {
+                    state.purchasedIds.push(boughtItem.id);
+                }
+                persistState();
+                renderGrid();
+
+                btn.disabled = false;
+                btn.textContent = 'تایید پرداخت و دریافت آنی کد';
+
+                closeSamanGateway();
+                showToast(`تراکنش موفق! کد پیگیری: ${receipt.receiptId}`);
+                openDetailModal(boughtItem.id);
+            }, 800);
+        }
+
+        function openTransactionsModal() {
+            const list = document.getElementById('transactionsListContainer');
+            if (state.transactions.length === 0) {
+                list.innerHTML = `<div style="text-align:center;padding:28px 12px;color:#64748b;font-size:12.5px;">هنوز تراکنشی ثبت نشده است.</div>`;
+            } else {
+                list.innerHTML = state.transactions.map(tx => `
+                    <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:12px;margin-bottom:8px;font-size:11.5px;">
+                        <div style="display:flex;justify-content:space-between;margin-bottom:5px;">
+                            <span style="color:#059669;font-weight:800;">✓ موفق (${tx.bankName})</span>
+                            <span class="font-mono" style="color:#64748b;">${tx.receiptId}</span>
+                        </div>
+                        <div style="font-weight:800;margin-bottom:5px;color:#0f172a;">${tx.itemTitle}</div>
+                        <div style="display:flex;justify-content:space-between;color:#475569;border-top:1px solid #e2e8f0;padding-top:5px;">
+                            <span>مقصد: <strong class="font-mono" dir="ltr">${tx.destinationCard}</strong></span>
+                            <strong style="color:#d97706;">${tx.amount.toLocaleString('fa-IR')} تومان</strong>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            document.getElementById('transactionsModal').classList.remove('hidden');
+        }
+
+        function closeTransactionsModal() {
+            document.getElementById('transactionsModal').classList.add('hidden');
+        }
+
+        function openNovinConfigModal() {
+            document.getElementById('novinMerchantName').value = state.novinConfig.merchantName || 'آیدین دهقان‌زاده - کدمارکت پرو';
+            document.getElementById('novinTerminalId').value = state.novinConfig.terminalId || '';
+            document.getElementById('novinGatewayUrl').value = state.novinConfig.gatewayUrl || 'https://pna.co.ir';
+            document.getElementById('novinConfigModal').classList.remove('hidden');
+        }
+
+        function closeNovinConfigModal() {
+            document.getElementById('novinConfigModal').classList.add('hidden');
+        }
+
+        function saveNovinConfig(e) {
+            e.preventDefault();
+            state.novinConfig = {
+                merchantName: document.getElementById('novinMerchantName').value.trim(),
+                terminalId: document.getElementById('novinTerminalId').value.trim(),
+                gatewayUrl: document.getElementById('novinGatewayUrl').value.trim() || 'https://pna.co.ir'
+            };
+            persistState();
+            closeNovinConfigModal();
+            showToast('تنظیمات درگاه پرداخت نوین آرین با موفقیت ذخیره شد!');
+        }
+
+        function redirectToPardakhtNovin() {
+            if (!activeGatewayItem) return;
+            const targetUrl = state.novinConfig.gatewayUrl || 'https://pna.co.ir';
+            showToast('در حال باز کردن صفحه پرداخت نوین آرین...');
+            window.open(targetUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        function copyToClipboard(text, message) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showToast(message);
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        let toastTimer;
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
